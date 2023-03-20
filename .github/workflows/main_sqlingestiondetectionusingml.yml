@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'SQLIngestionDetectionUsingML'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1EB26090B4344DDC851843870B71CBFE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A00EB986AB5445ACBEB0655E9E2553F8 }}
