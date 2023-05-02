@@ -68,7 +68,11 @@ def retrieveUsersWithUsername(username):
 def executeQuery(query: str):
     con = sql.connect("SQLiteDb\\userData.db")
     cur = con.cursor()
-    cur.execute(query)
-    users = cur.fetchall()
+    users = ""
+    try:
+        cur.execute(query)
+        users = cur.fetchall()
+    except:
+        print("Kindly correct your query")
     con.close()
     return users

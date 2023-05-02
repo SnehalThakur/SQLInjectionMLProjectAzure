@@ -39,10 +39,10 @@ def init():
     # print(f"F1 Score of XGBClassifier on test set : {f1_score(y_pred_tfidf, y_test_tfidf)}")
     #
     # # Save the model as a pickle in a file
-    # joblib.dump(xgb_clf_tfidf, r'C:\Users\snehal\PycharmProjects\SQLInjectionMLProject\models\xgb_clf_tfidf.pkl')
+    # joblib.dump(xgb_clf_tfidf, r'C:\Users\snehal\PycharmProjects\SQLInjectionMLProject\models_bkp\xgb_clf_tfidf.pkl')
 
     # # Load the model from the file
-    # xtree_clf_from_joblib = joblib.load('/models/xtree_clf.pkl')
+    # xtree_clf_from_joblib = joblib.load('/models_bkp/xtree_clf.pkl')
 
     return tfidf_vectorizer
 
@@ -50,22 +50,17 @@ def init():
 
 
 def getPrediction(text):
-
     tfidf_vectorizer = init()
     v0 = tfidf_vectorizer.transform([text]).toarray()
     # print(v0)
-
-    Pkl_Filename = r'models/xgb_clf_tfidf.pkl'
+    Pkl_Filename = r'models_bkp/xgb_clf_tfidf.pkl'
 
     # # Load the model from the file
     # with open(Pkl_Filename, 'rb') as file:
     #     xtree_clf_tfidf = pickle.load(file)
 
-    xtree_clf_tfidf = joblib.load(open(Pkl_Filename, 'rb'))
-
-    print("xtree_clf_tfidf =", xtree_clf_tfidf)
-
-    pred = xtree_clf_tfidf.predict(v0)
-
+    xgb_clf_tfidf = joblib.load(open(Pkl_Filename, 'rb'))
+    pred = xgb_clf_tfidf.predict(v0)
+    print("xgb_clf_tfidf =", xgb_clf_tfidf)
     print("Predicted Output = ", pred)
     return pred

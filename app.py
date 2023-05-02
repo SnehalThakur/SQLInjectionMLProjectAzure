@@ -8,6 +8,7 @@ import utils.preprocessing
 app = Flask(__name__)
 
 
+
 @app.route("/", methods=['POST', 'GET'])
 def home():
     dbHandler.createTableIfNotExist()
