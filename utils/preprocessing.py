@@ -53,7 +53,7 @@ def getPrediction(text):
     tfidf_vectorizer = init()
     v0 = tfidf_vectorizer.transform([text]).toarray()
     # print(v0)
-    Pkl_Filename = r'models\\xgb_clf_tfidf.pkl'
+    Pkl_Filename = r'models/xgb_clf_tfidf.pkl'
 
     # # Load the model from the file
     # with open(Pkl_Filename, 'rb') as file:
